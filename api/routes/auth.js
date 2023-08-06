@@ -3,8 +3,6 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 
 //REGISTER
-//if creating something we use post method, if updating, use put, delete use .delete,
-//to fetch we use .get method
 router.post("/register", async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(10);
@@ -15,7 +13,7 @@ router.post("/register", async (req, res) => {
       password: hashedPass,
     });
 
-    const user = await newUser.save(); //saving the user.. use await since it is async process
+    const user = await newUser.save();
     res.status(200).json(user);
   } catch (err) {
     res.status(500).json(err);
@@ -23,16 +21,18 @@ router.post("/register", async (req, res) => {
 });
 
 //LOGIN
-
 router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });
-    !user && res.status(400).json("Wrong Credentials!");
+    if (!user) {
+      return res.status(400).json("Wrong Credentials!"); // Add return statement
+    }
 
     const validated = await bcrypt.compare(req.body.password, user.password);
-    !validated && res.status(400).json("Wrong Credentials!");
-
-    const {password, ... others} = user._doc;
+    if (!validated) {
+      return res.status(400).json("Wrong Credentials!"); // Add return statement
+    }
+    const { password, ...others } = user._doc;
     res.status(200).json(others);
   } catch (err) {
     res.status(500).json(err);

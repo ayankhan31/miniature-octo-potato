@@ -1,5 +1,6 @@
 .settings{
     display: flex;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .settingsWrapper{
