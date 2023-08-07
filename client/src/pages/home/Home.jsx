@@ -1,7 +1,5 @@
-// import Posts from "../../../sidebar/Sidebar"
-// import Sidebar from "D:/Coding/Web Development/Bharat Intern/blog-website/src/posts/Posts.jsx"
-import Sidebar from "D:/Coding/Web Development/Bharat Intern/client/src/components/sidebar/Sidebar.jsx";
-import Posts from "D:/Coding/Web Development/Bharat Intern/client/src/components/posts/Posts.jsx";
+import Sidebar from "../../components/sidebar/Sidebar.jsx";
+import Posts from "../../components/posts/Posts.jsx";
 import Header from "../../components/header/Header.jsx";
 import "./home.css";
 import { useEffect, useState } from "react";

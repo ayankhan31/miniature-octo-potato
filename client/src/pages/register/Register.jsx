@@ -13,7 +13,6 @@ export default function Register() {
     e.preventDefault(); // to prevent page from refreshing by default after clicking the register button
     setError(false);
     try {
-      
       const res = await axios.post("/auth/register", {
         username,
         email,
@@ -29,38 +28,49 @@ export default function Register() {
     <div className="register">
       <span className="registerTitle">Register</span>
       <form className="registerForm" onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input
-          type="text"
-          className="registerInput"
-          placeholder="Enter your username..."
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <label>Email</label>
-        <input
-          type="text"
-          className="registerInput"
-          placeholder="Enter your email..."
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          className="registerInput"
-          placeholder="Enter your password..."
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button className="registerButton" type="submit">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            className="form-control registerInput"
+            id="floatingInput"
+            placeholder="Enter your username..."
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <label>Username</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            className="form-control registerInput"
+            id="floatingInput"
+            placeholder="Enter your email..."
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label>Email</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            className="form-control registerInput"
+            placeholder="Enter your password..."
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <label>Password</label>
+        </div>
+        <button className="btn btn-success registerButton" type="submit">
           Register
         </button>
       </form>
-      <button className="registerLoginButton">
+      <button className="btn btn-warning registerLoginButton">
         <Link className="link" to="/login">
           Login
         </Link>
       </button>
-      {error && <span style={{color:"red", marginTop:"10px"}}>Something went wrong!</span>}
+      {error && (
+        <span style={{ color: "red", marginTop: "10px" }}>
+          Something went wrong!
+        </span>
+      )}
     </div>
   );
 }

@@ -61,6 +61,15 @@
     font-size: 18px;
     font-weight: 300;
     cursor: pointer;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+.topListItem:hover{
+    background-color: teal;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    opacity:1;
 }
 
 .topSearchIcon{

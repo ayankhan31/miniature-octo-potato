@@ -8,7 +8,7 @@
     background: linear-gradient(rgba(255,255,255,0.5),
      rgba(255,255,255,0.5)
     ), 
-    url('D:\Coding\Web Development\Bharat Intern\client\src\assets\blog3.jpg');
+    url('https://images.unsplash.com/photo-1510935813936-763eb6fbc613?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=878&q=80');
     background-size: cover;
 }
 
@@ -37,23 +37,25 @@
 .loginButton{
     margin-top: 20px;
     cursor: pointer;
-    background-color: lightcoral;
+    background-color: rgba(237, 190, 49, 0.851);
     border: none;
-    color: white;
+    color: rgb(39, 53, 43);
     border-radius: 10px;
     padding: 10px;
+    opacity: 0.9;
+    transition:0.3s;
 }
 
 .loginButton:disabled{
     cursor: not-allowed;
-    background-color: rgb(252, 173, 173);
+    background-color: rgba(237, 198, 81, 0.851);
 }
 
 .loginRegisterButton{
     position: absolute;
     top: 60px;
     right: 20px;
-    background-color: teal;
+    /* background-color: teal; */
     cursor: pointer;
     border: none;
     padding: 10px;

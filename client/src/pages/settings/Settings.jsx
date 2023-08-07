@@ -12,11 +12,11 @@ export default function Settings() {
   const [success, setSuccess] = useState(false);
 
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:5000/images/"
+  const PF = "http://localhost:5000/images/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch({type:"UPDATE_START"})
+    dispatch({ type: "UPDATE_START" });
     const updatedUser = {
       userId: user._id,
       username,
@@ -31,16 +31,15 @@ export default function Settings() {
       updatedUser.profilePic = filename;
       try {
         await axios.post("/upload", data);
-        
       } catch (err) {}
     }
     try {
       const res = await axios.put("/users/" + user._id, updatedUser);
       // window.location.replace("/post/" + res.data._id);
       setSuccess(true);
-      dispatch({type:"UPDATE_SUCCESS", payload: res.data})
+      dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
     } catch (err) {
-      dispatch({type:"UPDATE_FAILURE"})
+      dispatch({ type: "UPDATE_FAILURE" });
     }
   };
 
@@ -51,10 +50,13 @@ export default function Settings() {
           <div className="settingsUpdateTitle">Update Your Account</div>
           <div className="settingsDeleteTitle">Delete Account</div>
         </div>
-        <form className="settingsForm" onSubmit={handleSubmit} >
+        <form className="settingsForm" onSubmit={handleSubmit}>
           <label>Profile Picture</label>
           <div className="settingsPP">
-            <img src={file ? URL.createObjectURL(file) : PF+user.profilePic} alt="" />
+            <img
+              src={file ? URL.createObjectURL(file) : PF + user.profilePic}
+              alt=""
+            />
             <label htmlFor="fileInput">
               <i className="settingsPPIcon fa-regular fa-user"></i>
             </label>
@@ -65,14 +67,51 @@ export default function Settings() {
               onChange={(e) => setFile(e.target.files[0])}
             />
           </div>
-          <label>Username</label>
-          <input type="text" placeholder={user.username} onChange={e=> setUsername(e.target.value)} />
-          <label>Email</label>
-          <input type="email" placeholder={user.email} onChange={e=> setEmail(e.target.value)} />
-          <label>Password</label>
-          <input type="password" onChange={e=> setPassword(e.target.value)} />
-          <button className="settingsSubmit" type="submit" >Update</button>
-          {success && <span style={{color:"green", textAlign:"center", marginTop:"20px"}}>Profile has been Updated...</span>}
+
+          <div class="form-floating">
+            <input
+              type="text"
+              id="floatingInput"
+              className="form-control"
+              placeholder={user.username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <label for="floatingInput">
+              {user.username} (current username)
+            </label>
+          </div>
+
+          <div class="form-floating">
+            <input
+              type="email"
+              id="floatingInput"
+              className="form-control"
+              placeholder={user.email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label for="floatingInput">{user.email} (email)</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              id="floatingPassword"
+              className="form-control"
+              placeholder="Enter your password..."
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <label for="floatingPassword">Password</label>
+          </div>
+
+          <button className="btn btn-success settingsSubmit" type="submit">
+            Update
+          </button>
+          {success && (
+            <span
+              style={{ color: "green", textAlign: "center", marginTop: "20px" }}
+            >
+              Profile has been Updated...
+            </span>
+          )}
         </form>
       </div>
       <Sidebar />

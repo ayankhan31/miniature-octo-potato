@@ -13,10 +13,10 @@ export default function TopBar() {
   return (
     <div className="top">
       <div className="topLeft">
-        <i className="topIcon fab fa-facebook-square"></i>
-        <i className="topIcon fab fa-twitter-square"></i>
-        <i className="topIcon fab fa-pinterest-square"></i>
-        <i className="topIcon fab fa-instagram-square"></i>
+        <i className="topIcon fb fab fa-facebook-square"></i>
+        <i className="topIcon x fab fa-x-twitter"></i>
+        <i className="topIcon pinterest fab fa-pinterest-square"></i>
+        <i className="topIcon insta fab fa-instagram-square"></i>
       </div>
       <div className="topCenter">
         <ul className="topList">
@@ -26,12 +26,12 @@ export default function TopBar() {
             </Link>
           </li>
           <li className="topListItem">
-            <Link className="link" to="/">
+            <Link className="link" to="https://www.linkedin.com/in/mohd-ayan-khan-0b59351b7/">
               ABOUT
             </Link>
           </li>
           <li className="topListItem">
-            <Link className="link" to="/">
+            <Link className="link" onClick={() => window.location = 'mailto:khan.ayan3101@gmail.com'}>
               CONTACT
             </Link>
           </li>

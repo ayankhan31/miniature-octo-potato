@@ -1,5 +1,4 @@
 import "./sidebar.css"
-import Ayan from "../../assets/Ayan.jpg"
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import axios from "axios";
@@ -18,8 +17,9 @@ export default function Posts() {
     <div className="sidebar">
         <div className="sidebarItem">
             <span className="sidebarTitle">ABOUT ME</span>
-            <img src={Ayan} alt="" />
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, dolores. Autem fugiat itaque molestias omnis odio ab molestiae</p>
+            <img src="https://media.licdn.com/dms/image/D5603AQH3erxHInA15g/profile-displayphoto-shrink_800_800/0/1672566508316?e=1697068800&v=beta&t=F1nfk7iWd8tRHgGy296pvhkqJWUEEXEFc9mxrE8HAsI" alt="" />
+            <p> Hey there! Welcome to my blog website. Feel free to add your thoughts by
+            creating new blogs and let others read your thoughts as well!</p>
         </div>  
         <div className="sidebarItem">
             <span className="sidebarTitle">CATEGORIES</span>

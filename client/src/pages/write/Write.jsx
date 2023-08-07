@@ -44,23 +44,30 @@ export default function Write() {
             <i className="writeIcon fa-solid fa-plus"></i>
           </label>
           <input type="file" id="fileInput" style={{ display: "none" }} onChange={e=> setFile(e.target.files[0] )} />
+          <div class="form-floating mb-3">
           <input
             type="text"
             placeholder="Title"
-            className="writeInput"
+            className="form-control writeInput"
+            id="floatingInput"
             autoFocus={true}
             onChange={e=>setTitle(e.target.value)}
           />
+          <label for="floatingInput">Title</label>
+          </div>
         </div>
-        <div className="writeFormGroup">
+        <div className="form-floating mb-3 writeFormGroup">
           <textarea
             placeholder="Tell your story..."
             type="text"
-            className="writeInput writeText"
+            id="floatingTextarea"
+            className="form-control writeInput writeText"
             onChange={e=>setDesc(e.target.value)}
+            style={{ height:"500px" }}
           ></textarea>
+          <label for="floatingTextarea">Tell your story...</label>
         </div>
-        <button className="writeSubmit" type="submit">
+        <button className="btn btn-success writeSubmit" type="submit">
           Publish
         </button>
       </form>
